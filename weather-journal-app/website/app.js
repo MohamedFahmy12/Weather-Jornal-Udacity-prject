@@ -2,7 +2,7 @@
 // base url is holding the url and the query string 
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 // API KEY
-const key = '810923476e78f030a2fdf4ba2c5eb1d5';
+const key = '810923476e78f030a2fdf4ba2c5eb1d5&units=imperial';
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = (d.getMonth() +1) + '.' + d.getDate() + '.' + d.getFullYear();

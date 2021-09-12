@@ -2,14 +2,16 @@
 // base url is holding the url and the query string 
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 // API KEY
-const key = '810923476e78f030a2fdf4ba2c5eb1d5&units=imperial';
+const key = '810923476e78f030a2fdf4ba2c5eb1d5';
+// Unit Constant
+const units = 'imperial'
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = (d.getMonth() +1) + '.' + d.getDate() + '.' + d.getFullYear();
 
 // Async GET data from api
-const retrieveData = async (url = '', Apikey) => {
-    const request = await fetch(url + '&appid=' + Apikey);
+const retrieveData = async (url = '', Apikey,unit) => {
+    const request = await fetch(url + '&appid=' + Apikey +'&units=' + unit);
     try {
         debugger;
         // Transform into JSON
@@ -49,7 +51,7 @@ function getJornalData() {
 
     if (zip != undefined & zip != '') {
         // Get data from openWeathered api using the baseUrl, zip code, and the key
-        retrieveData(baseUrl + zip, key).then(function (allData) {
+        retrieveData(baseUrl + zip, key,units).then(function (allData) {
             debugger;
             // extract needed data from the response
             var temp = allData.main.temp;
